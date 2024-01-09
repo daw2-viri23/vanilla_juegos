@@ -1,4 +1,5 @@
 # VERSION 1.0
+# SPRINT 0 - REQUISITOS Y PLANIFICACIÓN
 ## Requesitos y diagrama de casos de uso
 En la introducción de esta documentación, en la sección El proyecto Vanilla Games, en concreto en el apartado Requisitos del proyecto y casos de uso general, hemos definido qué se espera de nuestra aplicación web, a partir de los 'Casos de uso general'.
 
@@ -7,10 +8,9 @@ También hemos dividido todo el trabajo de desarrollo en diferentes versiones, c
 **Por lo tanto, vamos a comenzar por la versión 1.0.**
 
 Lo primero es definir **los casos de uso para esta versión.** Una primera aproximación podría ser la siguiente:
-``` 
-RECUERDA QUE...
+
+> RECUERDA QUE...  
 Los casos de uso son una herramienta esencial para comprender y especificar los requisitos de un sistema, y para garantizar que el software desarrollado satisfaga las necesidades de los usuarios finales.
-```
 
 ### Casos de uso para la V1.0 - Definición básica
 - Registrar usuario: Un usuario puede registrarse en la plataforma proporcionando su nombre, apellidos, email y contraseña.
@@ -68,14 +68,11 @@ El diagrama de casos de uso es una herramienta valiosa para comunicar y comprend
 
 Vamos a crear nuestro diagrama de casos de uso.
 
-```
-TIP
-Para dibujar el diagrama de casos de uso una herramienta interesante puede ser FIGMA..
 
-Figma es una herramienta de diseño de interfaces de usuario (UI) y experiencia de usuario (UX) basada en la nube. Permite a los diseñadores crear, prototipar y colaborar en diseños interactivos de alta calidad de forma colaborativa.
-```
-
-El diagrama de casos de uso para la versión 1.0 sería el siguiente:
+>TIP                                                                       
+    Para dibujar el diagrama de casos de uso una herramienta interesante puede ser [FIGMA.](https://www.figma.com/)                                                                
+             Figma es una herramienta de diseño de interfaces de usuario (UI) y experiencia de usuario (UX) basada en la nube. Permite a los diseñadores crear, prototipar y colaborar en diseños interactivos de alta calidad de forma colaborativa.                                               
+              El diagrama de casos de uso para la versión 1.0 sería el siguiente:
 
 ## Diagrama de casos de uso para la versión 1.0
 
@@ -84,3 +81,19 @@ El diagrama de casos de uso para la versión 1.0 sería el siguiente:
 Este diagrama refleja de forma resumida qué acciones se pueden llevar a cabo en nuestro aplicación dependiendo del rol del usuario.
 
 Ahora que tenemos claro todo lo que debe hacer la versión 1.0, nuestra misión ahora es planificar el trabajo que se nos viene encima...
+
+
+
+
+
+
+## PLANIFICACIÓN DEL PROYECTO
+
+### Planificación del proyecto
+¡Estamos listos y hemos comenzado a desarrollar la versión 1.0 de nuestro proyecto!
+
+En el apartado anterior hemos definido qué funcionalidades debe tener. Además, hemos analizado las diferentes arquitecturas y tecnologías y hemos optado por utilizar una CSR (Client Side Rendering basada en una SPA programada en Javascript y conectada a Supabase como servicio backend).
+
+Por lo tanto estamos en condiciones de definir cada una de las tareas que necesitaremos realizar para llevar a cabo esta primera versión del proyecto.
+
+Para poder planificar el trabajo, vamos a crear el 'backlog de proyecto', es decir, vamos a desglosar el trabajo en historias para, a continuación, crear el backlog de sprint (donde agruparemos las historias por entregas). Finalmente vamos a planificar su temporización, es decir, vamos a asignar un tiempo determinado a cada historia.
