@@ -564,3 +564,519 @@ Pero sí que es momento de reflexionar sobre el proceso realizado hasta ahora y 
 
 > **TAREA: REFLEXIÓN SOBRE EL SPRINT 0**                              
 Vamos a repasar juntos lo que hemos hecho hasta ahora, valorando la metodología y los resultados obtenidos
+
+---
+
+# Hist3a - Diseño de la interfaz. Bocetos
+Una vez tenemos claro las funcionalidades que debe realizar nuestra aplicación, comenzamos con el diseño de la interfaz.
+
+Este proceso incluye diseñar los bocetos, los wireframes y los mockups ,para acabar creando los prototipos con html.
+
+Sin duda, el primer paso, debe ser dibujar los bocetos, así que, busca un lápiz, una goma de borrar y un puñado de papel, ¡y manos a la obra!
+
+## Deseño de Bocetos
+
+> INFO                          
+Recuerda que los bocetos son dibujos a mano alzada que representan ideas de diseño de manera rápida y no detallada. Los bocetos suelen ser utilizados al inicio del proceso de diseño para explorar diferentes ideas y soluciones de diseño de manera rápida y económica. Los bocetos son ideales para hacer borradores rápidos y para discutir ideas con colegas y clientes.
+
+Home y menús usuarios
+![](https://carrebola.github.io/vanillaPill/assets/images/1684861508218-79dad6473fd7d571d5f73e96f893af7f.jpg)
+
+Hemos didivido la interficie en 3 zonas, el encabezado (header), el cuerpo principal (main) y el pie de página (footer).
+
+- En el header vamos a alojar una barra superior fija con: el logo y nombre de la web (que hará las veces de link a la página principal), un menú central genérico (para acceder a páginas públicas), un menú central específico (que será diferente en función del rol de usuario logueado), y un icono (avatar) que permitirá ver la imagen del usuario logueado y que hará de botón para desplegar otro menú, el menú de usuario (que tendrá diferentes items dependiendo de si la sesió está abierta o no y del tipo de rol que tenga el usuario logueado).
+- El cuerpo (main) albergará el contenido de las páginas. Será la sección que vaya cambiando dependiendo de la página que carguemos. En la página home simplemente aparece una imagen de fondo y el nombre de la web.
+- El header será meramente informativo.
+
+## Regitro de un usuario
+
+![](https://carrebola.github.io/vanillaPill/assets/images/1684861508212-88f1ed0a8c53df9f791872b3b03519d8.jpg)
+
+## Iniciar sesión
+
+![](https://carrebola.github.io/vanillaPill/assets/images/1684861508205-edba4a097ae58ec58f1bb07dc4b7e5e1.jpg)
+
+## Editar mi perfil
+
+![](https://carrebola.github.io/vanillaPill/assets/images/1684861508198-5b5eff368d5421682a834f3ed67af5bd.jpg)
+
+Editar perfil será una ventana modal, es decir, se mostrará la ventana y el fondo se volverá oscuro.
+
+Esta ventana de edición permitirá, además de modificar los datos del usuario, añadir una imagen de avatar. Por el momento, en esta primera versión, podremos añadir el link de una imagen que esté alojada en un servidor. En la siguiente versión (versión 1.1) actualizaremos esta ventana para que puedan subirse archivos (imágenes) al servidor.
+
+## Listado de todos los proyectos
+
+![](https://carrebola.github.io/vanillaPill/assets/images/1684861508192-6b771260fe99faccc760b23f71f02406.jpg)
+
+En esta página podemos ver, en la pestaña izquierda, todos los proyectos en forma de tabla. La pestaña derecha mostrará solo los proyectos que ha subido el usuario que ha iniciado la sesión.
+
+Al hacer clic en cualquier parte de la fila se accede al detalle del proyecto.
+
+También tenemos un buscador que permite buscar proyectos por palabras clave en el nombre o descripción.
+
+Las celdas de encabezado de las tablas incluyen un icono (flecha hacia arriba o hacia abajo) que permitirá ordenar la tabla por la columna en concreto.
+
+## Listado de Mis proyectos
+
+![](https://carrebola.github.io/vanillaPill/assets/images/1684861508186-f38d99164909a0783d2040ce646e928a.jpg)
+
+En esta pestaña podemos ver los trabajos pertenecientes al usuario logueado. En cada fila aparece, además, un icono para editar y borrar el proyecto correspondiente. Por otro lado tenemos la opción de subir un nuevo proyecto.
+
+*Habría que valorar si es mejor crear un único buscador para el nombre y descripción del proyecto o dos barras de busqueda, una para cada sección, tal y como se muestra en el boceto anterior.*
+
+## Detalle de un proyecto
+
+![](https://carrebola.github.io/vanillaPill/assets/images/1684861508178-ed1f5e41681a1dcee1edac19f807c239.jpg)
+
+Si el usuario que está viendo la información de un proyecto en concreto es el autor de dicho proyecto, aparecerá un icono para la edición del mismo.
+
+## Nuevo proyecto / Editar un proyecto
+
+![](https://carrebola.github.io/vanillaPill/assets/images/1684861508170-9db2cd42ef7a339d517e3d0b38d4ae45.jpg)
+
+Esta vista sirve tanto para crear un nuevo proyecto como para editarlo.
+
+Si el proyecto es nuevo, el botón mostrará el texto ENVIAR, pero si estamos editándolo aparecerá el texto ACTUALIZAR. Al crear o actualizar el proyecto, la web nos reenvía a la vista 'Detalle de proyecto'.
+
+## Panel administración de proyectos
+
+![](https://carrebola.github.io/vanillaPill/assets/images/1684861508161-c9cfd413730d67ea74b43e48fedea5ec.jpg)
+
+Si tienes el rol 'administrador' aparecerá el item 'Panel administración' en el menú superior específico. Este item nos permite cargar la vista 'Panel administración de proyectos'. Desde esta vista también podemos acceder al 'Panel administración de usuarios'.
+
+Esta vista permite editar o borrar cualquier proyecto haciendo click en los iconos correspondientes. La opción editar nos llevará a la vista 'Editar proyecto'
+
+## Panel administración de usuarios
+
+![](https://carrebola.github.io/vanillaPill/assets/images/1684861508152-04e98cfb1faeecf2a53ea921bdd63ebe.jpg)
+
+Esta vista permite editar los datos de los usuarios. Por supuesto es solo accesible para los administradores.
+
+En esta vista, el método para editar la información es diferentes. Aquí los datos aparecen sobre 'inputs', de manera que al hacer clic sobre ellos, aparecerá el cursor de edición. Se pueden modificar todos los datos (en especial el 'estado' y el 'rol' del usuario) excepto el email.
+
+---
+
+# Hist3b - Test de usuarios inicial
+## Primer Test de Usabilidad
+Tal y como hemos comentado en el apartado 'Diseño centrado en el usuario', una de las premisas de esta metodología consiste en realizar evaluaciones constantes para detectar los posibles problemas de usabilidad cuanto antes mejor. Por lo que una buena idea es realizar un primer test de usabilidad.
+
+>INFO                            
+Más adelante, hablaremos con más detalle de la usabilidad y las diferentes técnicas para evaluarla.
+
+Por el momento os adelanto que la técnica más utilizada par evaluar la usabilidad son los 'tests de usuario'.
+
+Estos consisten en crear una bateria de acciones que el usuario debe realizar, para detectar si existe algún problema en la interación con la aplicación. A continuación vamos pidiendo a un usuario focal (una persona que esté dentro del target de usuarios a quien va dirigida la app) que realice cada tarea, mostrandole los bocetos que aparecerán en cada interacción. Por ejemplo, si hace clic sobre el item de menú 'login' le mostraremos el boceto de la página 'login'.
+
+Para este primer test hemos preparado las siguientes acciones:
+
+- Suponiendo que eres un usuario no registrado:
+
+  - Accede a la información general 'A cerca de' de esta web.
+  - Regístrate.
+  - Logueate.
+  - Modifica tu perfil añadiendo una imagen de avatar.
+  - Busca un proyecto llamado 'Tetris'.
+  - Accede al detalle de este proyecto.
+  - Cierra sesión.
+
+- Suponiendo que eres un usuario con rol 'Desarrollador':
+
+  - Crea un proyecto nuevo.
+  - Accede a la lista de tus proyectos.
+  - Muestra el detalle de tu nuevo proyecto.
+  - Edita tu proyecto cambiando la descripción.
+  - Borra tu proyecto.
+
+- Suponiendo que eres un usuario con rol 'Administrador':
+
+  - Muestra la lista de proyectos.
+  - Borra un proyecto.
+  - Modifica el nombre de un proyecto.
+  - Muestra la listra de todos los usuarios registrados.
+  - Canvia el rol de uno de ellos.
+  - Modifica la imagen de su avatar.
+
+>NOTA                         
+Las acciones del test de usuarios han sido realizadas por una persona de 20 años, con estudios universitarios y acostumbrado a navegar por la red y usar herramientas ofimáticas.
+
+## Conclusiones y modificaciones
+De este primer test de usuario se desprenden las siguientes conclusiones:
+
+- La vista de proyectos en forma de tabla no es muy atractiva.
+- El usuario ha tenido dificultades a la hora de intentar modificar la imagen avatar de un usuario.
+
+Para mejorar estos pequeños problemas de usabilidad vamos a tomar las siguientes acciones:
+
+- En la vista de proyectos vamos crear un par de botones para poder alternar entre ver los proyectos en forma de tabla o en forma de tarjetas.
+- En la vista de administración de usuarios, añadir un pequeño icono (un lápiz) sobre la imagen del avatar del usuario para que se intuya que, al hacer clic sobre la imagen, se accede a la ventana de modificación de perfil.
+
+Estos serían los bocetos actualizados:
+
+## Vista de proyectos
+*Poner la imagen del los nuevos bocetos*
+
+## Vista del Panel de administraición de usuarios.
+*Poner la imagen del los nuevos bocetos*
+
+Ahora que tenemos los bocetos creados y testeados, es el momento de pasar al siguiente nivel: **El diseño de los wireframes.**
+
+---
+
+# Hist4 - Wireframe, mockup y guía de estilos
+En el apartado anterior hemos diseñado y testeado los bocetos para la versión 1.0 de nuestro proyecto.
+
+El siguiente paso, si nos basamos en el DCU (Diseño centrado en el usuario), sería diseñar los wireframes y, una vez tenemos los wireframes, los mockups junto a la guía de estilos.
+
+>RECUERDA QUE...                            
+Un boceto es un dibujo rápido que representa ideas,
+un wireframe es una representación estructural y esquemática,
+un mockup es una versión visualmente detallada del diseño y
+una guía de estilos establece las pautas visuales y de diseño para un proyecto.
+Puedes encontrar más información sobre el diseño de prototipos y guía de estilos 👉 [aquí]()
+
+Un proyecto de mayor envergadura requeriría de un equipo de trabajo con más de un perfil. La tarea de diseñar la interficie corresponde, por un lado, al arquitecto de la información y por otro, a un diseñador gráfico.
+
+>¿QUÉ ES UN ARQUITECTO DE LA INFORMACIÓN?                        
+En diseño web, un arquitecto de la información (IA, por sus siglas en inglés) es un profesional encargado de organizar y estructurar la información de un sitio web de manera clara y coherente para mejorar la experiencia del usuario. Su objetivo principal es facilitar la navegación y la búsqueda de información, asegurándose de que los usuarios encuentren lo que están buscando de manera eficiente.
+<details>
+<summary>Qué hace un arquitecto de la información?</summary>
+  El arquitecto de la información se enfoca en varios aspectos del diseño web, como la disposición y organización de los contenidos, la estructura de menús y enlaces, la taxonomía y la categorización de la información, y la creación de esquemas de navegación. Trabaja en estrecha colaboración con diseñadores, desarrolladores y especialistas en experiencia de usuario para crear una estructura coherente y lógica.
+
+Las responsabilidades del arquitecto de la información pueden incluir:
+
+- Análisis de requisitos: Comprender las necesidades y objetivos del sitio web, identificar los requerimientos de información y determinar la mejor manera de organizarla.
+
+- Diseño de la estructura de información: Crear una estructura jerárquica y lógica para los contenidos del sitio web, estableciendo relaciones y categorías claras.
+
+- Creación de esquemas de navegación: Definir la disposición de los menús, la ubicación de los enlaces y la forma en que los usuarios se desplazarán por el sitio web.
+
+- Desarrollo de taxonomías: Clasificar y categorizar la información en términos de etiquetas, categorías y metadatos para facilitar la búsqueda y la recuperación de información.
+
+- Diseño de wireframes y prototipos: Crear representaciones visuales de la estructura y organización de la información mediante wireframes y prototipos interactivos.
+
+- Pruebas y evaluación: Realizar pruebas de usabilidad para verificar la efectividad de la arquitectura de la información y realizar ajustes según sea necesario.
+
+En resumen, el arquitecto de la información en diseño web se encarga de organizar y estructurar la información de manera lógica y coherente, asegurando una experiencia de usuario mejorada y facilitando la navegación y búsqueda de información en un sitio web.
+</details>
+
+
+>**¿Y QUÉ PAPEL JUEGA UN DISEÑADOR GRÁFICO EN LA CREACIÓN DE LOS MOCKUPS Y LA GUÍA DE ESTILOS?**                       
+La misión de un diseñador gráfico en la elaboración de mockups es crear representaciones visuales detalladas del diseño final de una interfaz o página web. Su objetivo es plasmar de manera precisa y visualmente atractiva los elementos visuales, como colores, tipografía, imágenes y estilos gráficos, que se utilizarán en el desarrollo del sitio web.
+
+<details>
+<summary>El diseñador gráfico crea los mockups y la guía de estilos...</summary>
+El diseñador gráfico trabaja estrechamente con el equipo de diseño y desarrollo para convertir los conceptos y requisitos del proyecto en diseños visuales tangibles.
+
+Utiliza herramientas de diseño gráfico y software de prototipado para crear mockups que reflejen el diseño final del sitio web, incluyendo la disposición de los elementos, la jerarquía visual y la experiencia de usuario.
+
+Por otro lado, la misión del diseñador gráfico en la guía de estilos de un proyecto web es establecer y definir los estándares de diseño y las pautas visuales que se utilizarán en todo el sitio web.
+
+El diseñador gráfico se encarga de crear una guía de estilos que incluya información sobre colores, tipografía, iconos, logotipos, espaciado, estilos de botones y otros elementos visuales.
+
+La guía de estilos proporciona coherencia y uniformidad en el diseño del proyecto web, permitiendo que todos los elementos visuales se mantengan consistentes en todas las páginas y secciones. El diseñador gráfico asegura que los diseños de los mockups se alineen con las pautas establecidas en la guía de estilos, garantizando una apariencia visual coherente y una experiencia de usuario fluida en todo el sitio web.
+
+En resumen, la misión de un diseñador gráfico en la elaboración de mockups es crear representaciones visuales detalladas del diseño final de una interfaz o página web, mientras que en la guía de estilos su misión es establecer y definir los estándares de diseño y las pautas visuales que se aplicarán en todo el proyecto web. Ambos roles son esenciales para garantizar un diseño visualmente atractivo, coherente y efectivo en el desarrollo de un sitio web.
+</details>
+
+## Y nosotros, ¿necesitamos wireframe? ¿y mockup? ¿y guía de estilos?
+En nuestro caso, como el proyecto es muy básico, no nos vamos a centrar en aquellas tareas que corresponderían a un arquitecto de la información ni a un diseñador gráfico.
+
+El mapa web de nuestra aplicación se limita a dar acceso a los proyectos y la administración de los usuarios. Sería tan sencillo com este:
+
+En cuanto al diseño gráfico, aunque es una misión emocionante, nos vamos a limitar a trabajar con un tema de bootstrap utilizando Bootswatch, respetando, a priori, su paleta de colores y modificando, solo en algunos casos, algunos detalles como la fuente para los títulos.
+
+>NOTA              
+Puedes ver el aspecto del tema que vamos a utilizar en el siguiente enlace: https://bootswatch.com/cosmo/
+
+![](https://carrebola.github.io/vanillaPill/assets/images/bootswatch-5cfb41f7af4e39535489cba274c60968.png)
+
+>**¿QUÉ ES BOOTSWATCH?**    
+Bootswatch es una biblioteca de temas (themes) para Bootstrap, un popular framework de desarrollo web.
+Al utilizar Bootswatch, puedes cambiar fácilmente la apariencia de tu proyecto de Bootstrap simplemente importando los archivos CSS correspondientes al tema deseado. Esto te permite ahorrar tiempo y esfuerzo al no tener que crear los estilos desde cero.
+
+---
+
+# Hist5 - Entorno de desarrollo
+## Comenzamos el SPRINT 2 - PROTOTIPOS
+Comenzamos el sprint 2 que incluye tres historias: La configuración del entorno de desarrollo, la maquetación de los bocetos y la implementación de la validación de los formularios.
+
+![](https://carrebola.github.io/vanillaPill/assets/images/image-1-14f1edaf03a5d4ca8ecc973db80a55cf.png)
+
+*“Dame seis horas para cortar un árbol y pasaré las primeras cuatro afilando el hacha.” – Abraham Lincoln*
+
+Si queremos ser eficientes en la creación de aplicaciones web, lo mejor es empezar por configurar bien nuestro entorno de desarrollo. Para ello vamos a instalar/configurar las siguientes herramientas:
+
+1. Un buen software para escribir nuestro código. En nuestro caso usaremmos el programa VSCode de Microsoft.
+2. Instalación del software para el control de versiónes. Nosotros instalaremos GIT.
+3. Una aplicación web para sincronizar nuestro repositorio en la nube. En nuestro caso será GitHub.
+
+## 1. VSCode
+Sin duda, en le momento de escribir esta documentación, el rey de los IDs es, sin duda, Visual Studio Code (VSCode).
+
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/2048px-Visual_Studio_Code_1.35_icon.svg.png)
+
+>NOTE                            
+VSCode es un programa muy útil para escribir código. Es como una navaja suiza para los desarrolladores. Te permite editar y organizar tus archivos de código de manera fácil y rápida. Además, tiene un montón de extensiones y herramientas fantásticas que te facilitan la vida, como autocompletado, depuración y control de versiones. En resumen, es como el mejor amigo de un programador, siempre dispuesto a ayudarte a escribir código de manera eficiente.
+
+Os hago un resumen de algunas aspectos que debes tener en cuenta a la hora de instalar y configurar VSCode, y te pondré información ampliada ya que es un tema muy trillado en internet:
+
+## 1.1. Descarga e instala VSCode
+Puedes encontrar la versión oficial de vscode aquí
+
+## 1.2. Elige el tema que más te guste.
+Puedes tunear tu VSCode instalando diferentes temas. Para ello:
+
+- Desde el buscador de extensiones (ctrl + mayus + X) escribe el nombre del tema que quieres instalar.
+- Haz clic en instalar extensión.
+- Desde el icono de configuración de vscode (la tuerquecita de abajo a la izquierda) selecciona 'Temas > Tema de color'
+- Selecciona el tema que has instalado y... ¡ya lo tienes!
+
+>TIP
+En este enlace puedes encontrar algunos temas para instalar en tu VSCode: Themes VSCode                                                                 
+                  Y aquí te dejo una tabla de algunos temas que nos recomienda el amigo 'Manz'
+
+
+Estos son algunos de los temas que nos recomienda Manz"
+```
+🌈 Flatland Monokai
+👀 Enfocado Theme
+🟡 Bluloco Dark Theme
+🧔 Bearded Theme
+🐼 Panda Theme
+🟣 2077 Theme
+🧛‍♀️ Dracula Dark Theme
+💠 SynthWave 84
+🤍 GitHub Light Theme
+😸 Gatito Theme
+💚 Vue Theme
+⚫ One Monokai Theme
+🌃 Palenight Theme
+👧 Doki Theme
+🗻 Monokai Theme
+🔵 Cobalt2 Theme
+🐺 Winter is Coming
+```
+## 1.3. Instala un tema de iconos, por ejemplo VSCode Icons o Material Icon
+Para instalar los iconos el proceso es el mismo:
+
+- Desde el buscador de extensiones escribe el nombre del tema de iconos
+- En configuración, selecciona 'Tema > Tema de icono de archivo' y busca el tema instalado.
+- Ahora verás que en la columna de la izquierda, cada archivo tiene un icono diferente en función de su extensión: html, css, etc.
+
+### 1.4. Extensiones
+Con las extensiones puedes aumentar la potencia y mejorar tu flujo de trabajo.
+
+**Prettier**
+
+Una de las extensiones que te recomiendo sí o sí es 'Prettier'. Esta extensión se va a encargar de formatear tu código HTML y CSS port tí, respetando las identaciones. El proceso para instalar esta extensión es muy simple, solo tienes que buscar la extensión en el buscador y darle a instalar.
+
+>CÓMO FORMATEAR AUTOMÁTICAMENTE EN VS CODE PARA AHORRAR TIEMPO Y ESFUERZO                          
+Aquí tienes un artículo donde se explica como instalar y configurar Prettier para que el código se formatee cada vez que guardamos nuestro archivo:
+
+[Cómo formatear automáticamente en VS Code para ahorrar tiempo y esfuerzo]()
+
+*Live Server*
+
+Otra extensión imprescindible para nosotros es Live Server. Mediante esta extensión podremos tener un servidor virtual que mostrará el resultado de nuestro trabajo en un navegador, con la ventaja de que la vista se irá actualizando conforme vamos modificando el código.
+
+Existen infinidad de extensiones para VSCode Aquí puedes ver un ejemplo de mi entorno. Utilizo el tema Night Owl y los iconos de VSCode Icons. Fijate que el código html está formateado con Prettier
+
+![](https://carrebola.github.io/vanillaPill/assets/images/entornovscode-80ba59cf4e146584bd91bdc2ddc30ba1.png)
+
+De momento, con esto es suficiente para comenzar a trabajar en el desarrollo de los prototipos html y css. Más adelante acabaremos de configurar nuestro entorno para trabajar con NodeJS y otras herramientas que nos ayudarán a programar de forma más eficiente.
+
+## 2. Control de versiones - Git
+Para el control de versiones vamos a instalar y configurar Git. Aunque seguro que a estas alturas ya sabes qué es Git, pero deja que te refresque algunas ideas importantes:
+
+>INFO                 
+✔ Git es como un superpoderoso control de versiones para tu código. Imagina que estás escribiendo un ensayo importante y cada vez que haces cambios guardas una nueva versión en diferentes archivos, como "ensayo_v1", "ensayo_v2" y así sucesivamente. Git hace algo similar pero para tu código.                      
+✔ Con Git, puedes guardar diferentes versiones de tu proyecto a medida que avanzas. Esto significa que si cometes un error o quieres volver a una versión anterior, ¡es pan comido! Git te permite viajar en el tiempo y regresar a cualquier punto en la historia de tu proyecto.                               
+                      ✔ Pero eso no es todo. Git también es excelente para trabajar en equipo. Puedes colaborar con otros programadores sin pisar los pies de nadie. Cada persona puede trabajar en su propia versión del proyecto y luego combinar los cambios de todos de manera ordenada.      
+✔ Además, Git hace que compartir tu código sea súper fácil. Puedes subir tu proyecto a un repositorio en línea (como GitHub o GitLab) y otras personas pueden descargarlo y contribuir. Incluso puedes colaborar con desarrolladores de todo el mundo en proyectos de código abierto.                       
+     Aprender git es muy importante para un desarrollador web. Por suerte lo vas a estudiar (si no lo has hecho ya) en el ciclo de DAW. De todas formas te dejo un enlace con más información que te será muy util para entender conceptos como que es una rama, como subir ramas al repositorio, clonarlas, sincronizarlas etc:
+
+[👉Hello Git & GitHub👈]()
+
+Vamos a instalar (si aun no está instalado) Git. Para ello:
+
+1. Descarga su última versión de la web oficial: Download Git.
+
+2. Instala en tu ordenador el software.
+
+3. Configura git para tu usuario:
+
+  - Lo primero que deberás hacer cuando instales Git es establecer tu nombre de usuario y dirección de correo electrónico. Esto es importante porque los "commits" de Git usan esta información, y es introducida de manera inmutable en los commits que envías:
+  ```
+    $ git config --global user.name "John Doe"
+    $ git config --global user.email johndoe@example.com  
+  ```
+Sólo necesitas hacer esto una vez si especificas la opción --global, ya que Git siempre usará esta información para todo lo que hagas en ese sistema
+
+```
+INFO
+✔️ Tienes más información de cómo configurar Git aquí:
+
+👉Configurando Git por primera vez👈
+
+✔️ Si quieres aprender más sobre git también puedes consultar este recurso de Obdulia Montiel:
+
+👉La guía para principiantes de Git y Github👈
+```
+
+## 3. Repositorio en linea - Github
+
+Ahora que tenemos Git instalado en nuestro ordenador, vamos crearnos una cuenta en Github para poder sincronizar todo nuestro trabajo en la nube.
+
+```
+¿QUÉ ES Y PARA QUE SIRVE GITHUB?
+✔️ GitHub es una especie de red social para programadores. Es un lugar en línea donde los desarrolladores pueden compartir y trabajar en proyectos de software.
+
+✔️ Funciona como un repositorio donde se guarda el código de diferentes versiones de un proyecto. Permite la colaboración entre programadores, quienes pueden ver y sugerir cambios en el código.
+
+✔️ Es una herramienta muy popular y útil en la comunidad de desarrollo de software.
+```
+
+1. En primer lugar vamos a acceder github.com
+2. Crea una cuenta e inicia sesión.
+3. Ahora vamos a crear un proyecto de prueba con vscode, craremos un repositorio y lo sincronizaremos con github.
+
+
+## Configurando entorno y subiendo página de pruebas
+Vamos a ver un ejemplo de todo el proceso. La idea es instalar y configurar nuestro entorno de desarrollo para después crear una página web, guardar una versión en git, subirla a github y publicarla en github pages. Vamos a por ello:
+
+1. Instala VSCode si no la has hecho aún.
+
+2. Configúralo con el tema que más te guste, los iconos que decidas e instala las extensiones live server y prettier.
+
+1. Crea una carpeta en tu ordenador con nombre pruebas
+
+4. Abre VSCode y arrastra la carpeta dentro de la ventana central.
+
+5. Crea un archivo con nombre index.html (algo básico, con un h1 y poco más).
+
+6. Muestra el resultado en el navegador utilizando live server.
+
+7. Configura prettier para que al guardar con ctrl + S se aplique formateado de tu código. Pruebalo.
+
+8. Instala Git si no lo has hecho aún.
+
+9. Configura tu usuario o confirma que ya está configurado.
+
+10. Haz clic en el icono de 'Control de fuente' de tu vscode o pulsa ctrl + Mayus + G
+
+11. Aparecerá un mensaje que te indica que no tienes repositorio creado, y te dará la opción de crearlo desde aquí. Hazlo
+
+![](https://carrebola.github.io/vanillaPill/assets/images/pruebas-699477c2eaed5615c35abc13ab591adb.png)
+
+![](https://carrebola.github.io/vanillaPill/assets/images/confirmgit-05eb2b43bcbe481fd8cec6be0976d4a5.png)
+
+12. Escribe un mensaje de inicio de repositorio (por ejemplo 'primer commit de git') y dale a confirmar.
+
+13. Ahora te pedirá si quieres publicar la rama ('Branch'). Dile que sí. Al hacer clic te preguntará qué nombre quieres para el repositorio y si quieres que sea privado o público. Por defecto, el nombre del repositorio coincide con el nombre de la carpeta de tu proyecto, pero puedes cambiarlo si lo deseas. Para esta prueba haremos que nuestro repositorio sea público.
+
+14. Si es la primera vez que conectas tu VSCode con github te pedirá que lo sincronices. Utiliza la opción de confirmar a través de VSCode.
+
+15. Una vez publicado tu archivo en github podrás ver, en tu página de github (por ejemplo carrebola.github.com), algo así:
+
+![](https://carrebola.github.io/vanillaPill/assets/images/github-331ad9adada0e68ee217ed2a11147d31.png)
+
+> ¿CÓMO UTILIZAR GIT DESDE VISUAL STUDIO CODE?                       
+Aquí te dejo un enlace a un artículo de donde nos explica como trabajar con git y github desde VSCode:
+
+[👉¿Cómo utilizar Git desde Visual Studio Code?👈]()
+
+1. Vamos a documentar de forma básica nuestro proyecto prueba. Para ello vamos ahora a crear un archivo readme.md para que github muestre información del proyecto publicado en su pantalla inicial:
+- Crea un archivo con nombre readme.md en la raiz de la carpeta del proyecto.
+- Escribe dentro un texto descriptivo del proyecto, como por ejemplo:
+
+```
+# Configurando nuestro entorno de desarrollo
+
+1. Instalación de VSCode
+2. Configurarción de git y github
+3. Pruebas con proyecto
+```
+
+Si abrimos ahora github podemos ver como se muestra esta información en la portada del repositorio de github.
+
+![](https://carrebola.github.io/vanillaPill/assets/images/pruebamarkdown-e0afca8f47d07e677b84a971c713f4c3.png)
+
+TIP
+Fíjate que el # equivale a un <h1></h1> y que la numeración se comporta como una lista ordenada <ol></ol>. Este tipo de lenguaje se llama Markdown.
+
+APRENDE MARKDOWN
+Si quieres saber más de este sencillo y potente lenguaje aquí tienes más información:
+
+👉 MARKDOWN👈
+
+14. Para terminar vamos a subir nuestro proyecto a github pages. Para ello:
+      - Haz clic en Settings (el icono con forma de engranaje de la parte superior)
+      - Entra en Pages (opción que encontrarás en el menú lateral izquierdo)
+      - Donde pone Branch selecciona la rama main y haz clic en Save.
+      - Si todo ha ido bien, la página se está publicando... Espera un minuto y refresca la página con F5
+      - Ahora puedes ver la url donde se ha publicado tu página. Haz clic en el enlace o en el botón Visit site y podrás ver la web publicada.
+
+![](https://carrebola.github.io/vanillaPill/assets/images/githubpages-29b29a98b367965695b01b043cb7c0d2.png)
+
+> INFO                         
+GitHub Pages es como un servidor web estático gratuito para que los desarrolladores muestren su trabajo al mundo. Básicamente, puedes tomar tus proyectos de GitHub y convertirlos en páginas web públicas para que cualquiera las vea.
+
+Y hasta aquí la configuración de nuestro entorno de desarrollo, al menos la versión básica. Más adelante aprenderemos a trabajar con otras herramientas como nodejs, eslint, etc, pero de momento, con este entorno, ya estamos preparados para crear los prototipos en html y css de la primera versión de nuestro proyecto.
+
+# ¡¡¡ Comienza el juego !!!
+Ahora que tenemos el hacha afilado, es el momento de comenzar a escribir el primer código de nuestro proyecto. Pero antes vamos a crear un proyecto nuevo en VSCode, a continuación crearemos un repositorio y lo vincularemos con github. Después crearemos una rama exclusiva para el diseño de los prototipos en html/css. Y ya estaremos listos para comenzar a picar código. Vamos a ello:
+
+## Creando la rama principal
+1. Crea en tu carpeta de proyectos una carpeta con nombre vanillagames10
+
+2. Abre VSCode y arrástrala a la parte central de tu IDE
+
+>DANGER                     
+Asegúrate de que has arrastrado la carpeta a la ventana central de VSCode. Si la arrastras a la columna de la izquierda tendrás varios proyectos abiertos a la vez, y podrías tener problemas cuando trabajes con tu repositorio. Yo te recomiendo que cada ventana de VSCode contenga tan solo un proyecto único.
+
+3. Crea un repositorio para el proyecto.
+
+4. Crea el primer commit con el mensaje 'Commit principal'
+
+5. Publica la rama con el mensaje 'Rama principal'
+
+6. Publica el repositorio como privado
+
+7. Ahora tienes un proyecto con una única rama, cuyo nombre por defecto es main. Vamos a crear un archivo readme.md para esta rama. Escribe en él el título 'Vanilla Games' junto a un párrafo con la descripción del proyecto: 'Vanilla Games es el nombre que recibe el proyecto que vamos a desarrollar en esta documentación. Es un proyecto sencillo, en las versiones iniciales, que se irá complicando a medida que vayamos trabajando en él.'.
+
+8. Crea un segundo commit con el texto 'Creamos archivo readme.md para rama principal'. A continuación sincroniza los cambios con github.
+
+9. Abre ahora la página de github y comprueba que:
+
+      1.  El proyecto se ha creado y subido con éxito en la rama main.
+      2. Se muestra la información del archivo readme.md en la página principal.
+      3. Se muestra el mensaje del commit que has hecho.
+
+![](https://carrebola.github.io/vanillaPill/assets/images/inicioproyecto-ab5828d05b8e4317f9f0087120d9361e.png)
+
+### Creando la rama prototipos
+Vamos a crear una rama exclusiva para el diseño de los prototipos y a subirla a github. Sigue los siguientes pasos:
+
+1. Crea una rama nueva con nombre prototipos. Para ello haz clic en el nombre de la rama actual 'main' que verás en la parta inferior izquierda de VSCode.
+
+2. Selecciona Crear rama...
+
+3. Vamos a ponerle el nombre 'prototipos'
+
+4. Fijate que ahora en la parte inferior izquierda aparece el nombre de la rama actual en la que estás trabajando.
+
+5. Crea una carpeta en la raiz con nombre prototipos.
+
+6. Ahora vamos a crear el archivo home.html (de momento pon un h1 con el título y poco más)
+
+![](https://carrebola.github.io/vanillaPill/assets/images/protos1-26ba5502c1bce36be8cc2de8a52a4433.png)
+
+7. Y hacemos un commit con el texto 'Prueba prototipo home'. Te pedirá si quieres publicar la rama, dile que sí y haz push (sincronziar con github).
+
+8. Fíjate que ahora en github tienes las dos ramas, la rama mainy la rama prototipos. En la rama main solo tienes el archivo readme.md pero en la rama prototipos ahora ya tienes la carpeta prototiposcon el archivo home.html. Es decir, ahora tienes un repositorio de tu proyecto pero con diferentes ramas que, por el momento, serán completamente independientes.
+
+![](https://carrebola.github.io/vanillaPill/assets/images/ramaprototipos-4b6a4adf8d2813e783f2498ea4b6a395.png)
+
+9. Ya para acabar, puede ser interesante crear un archivo readme.md dentro de la carpeta prototipos. Hazlo y sube los cambios a github
+
+![](https://carrebola.github.io/vanillaPill/assets/images/readmeprototipos-a2709d586bc007c947e45e1744b72777.png)
