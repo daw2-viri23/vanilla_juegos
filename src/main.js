@@ -20,3 +20,4 @@ document.querySelector('header').innerHTML = header.template
 
 //Inyectamos el componente footer
 document.querySelector('footer').innerHTML = footer.template
+
