@@ -5287,7 +5287,7 @@ const editarPerfil = {
     aria-hidden="true"
   >
     <!-- Formulario de edición de perfil -->
-    <form novalidate action="">
+    <form novalidate id="formularioEditarPerfil" action="">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -5308,7 +5308,7 @@ const editarPerfil = {
                   <div
                     class="imagen mx-auto mb-1 rounded-circle"
                     style="
-                      background-image: url(.images/avatar.svg);
+                      background-image: url(${ls.getUsuario().avatar});
                       width: 200px;
                       height: 200px;
                       background-size: cover;
@@ -5319,34 +5319,34 @@ const editarPerfil = {
                   <!-- Imagen de perfil -->
                   <label for="imagen" class="form-label mt-3">URL imagen:</label>
                   <input
-                    id="imagen"
+                    id="avatar"
                     type="url"
                     class="form-control"
-                    value="http://imagenavatar.png"
+                    value="${ls.getUsuario().avatar}"
                   />
                   <div class="invalid-feedback">La url no es correcta</div>
                 </div>
 
                 <div class="">
                   <!-- Nombre -->
-                  <label for="nombre" class="form-label">Nombre:</label>
-                  <input required id="nombre" type="text" class="form-control" />
+                  <label for="nombrePerfil" class="form-label">Nombre:</label>
+                  <input required id="nombrePerfil" type="text" class="form-control" value="${ls.getUsuario().nombre}" />
                   <div class="invalid-feedback">El nombre es requerido</div>
                   <!-- Apellidos -->
-                  <label for="apellidos" class="form-label">Apellidos:</label>
-                  <input id="apellidos" type="text" class="form-control" />
+                  <label for="apellidosPerfil" class="form-label">Apellidos:</label>
+                  <input id="apellidosPerfil" type="text" class="form-control" value = "${ls.getUsuario().apellidos}" />
 
                   <!-- Email -->
-                  <label for="email" class="form-label">Email:</label>
-                  <input required id="email" type="email" class="form-control" />
+                  <label for="emailPerfil" class="form-label">Email:</label>
+                  <input required id="emailPerfil" type="email" class="form-control" value = "${ls.getUsuario().email}" />
                   <div class="invalid-feedback">El formato no es correcto</div>
 
                   <!-- Contraseña -->
-                  <label for="pass" class="form-label mt-3">Contraseña:</label>
+                  <label for="passPerfil" class="form-label mt-3">Nueva contraseña:</label>
                   <input
-                    required
+                    
                     minlength="6"
-                    id="pass"
+                    id="passPerfil"
                     type="password"
                     class="form-control"
                   />
@@ -5361,7 +5361,7 @@ const editarPerfil = {
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
               Cancelar
             </button>
-            <button type="button" class="btn btn-primary">Guardar cambios</button>
+            <button id="enviarPerfilEditado" data-id = ${ls.getUsuario().user_id} type="submit" class="btn btn-primary">Guardar cambios</button>
           </div>
         </div>
       </div>
@@ -5370,7 +5370,29 @@ const editarPerfil = {
   `
   ),
   script: () => {
-    console.log("script de modal editar perfil cargado");
+    console.log("script editar perfil cargado");
+    const formulario = document.querySelector("#formularioEditarPerfil");
+    formulario.addEventListener("submit", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      if (!formulario.checkValidity())
+        ;
+      else {
+        enviaDatos();
+      }
+      formulario.classList.add("was-validated");
+    });
+    function enviaDatos() {
+      const perfilEditado = {
+        avatar: document.querySelector("#avatar").value,
+        nombre: document.querySelector("#nombrePerfil").value,
+        apellidos: document.querySelector("#apellidosPerfil").value,
+        email: document.querySelector("#emailPerfil").value,
+        contraseña: document.querySelector("#passPerfil").value
+      };
+      alert(`Enviando a la base de datos el objeto con id = ${ls.getUsuario().user_id}`);
+      console.log(`Enviando a la base de datos el objeto con user_id = ${ls.getUsuario().user_id}`, perfilEditado);
+    }
   }
 };
 const header = {
@@ -5381,7 +5403,7 @@ const header = {
   <div class="container">
     <a class="navbar-brand router-link" href="#/home"
       ><img
-        src="/assets/images/logo.svg"
+        src="images/logo.svg"
         alt=""
         width="30"
         height="24"
@@ -5426,7 +5448,7 @@ const header = {
   script: () => {
     console.log("Header cargado");
     document.querySelector("#modal").innerHTML = editarPerfil.template;
-    ls.setUsuario({ email: "chafardera@gmial.com", rol: "registrado" });
+    editarPerfil.script();
     const rolUsuario = ls.getUsuario().rol;
     switch (rolUsuario) {
       case "registrado":
@@ -5443,8 +5465,25 @@ const header = {
         break;
       default:
         document.querySelector("#menuRol").innerHTML = menuRol.templateAnonimo;
+        document.querySelector("#menuUsuario").innerHTML = "";
         break;
     }
+    try {
+      document.querySelector("#emailUserMenu").innerHTML = ls.getUsuario().email;
+      document.querySelector("#rolUserMenu").innerHTML = ls.getUsuario().rol;
+      const imagen = ls.getUsuario().avatar === "" ? "images/avatar.svg" : ls.getUsuario().avatar;
+      document.querySelector("#avatarMenu").setAttribute("src", imagen);
+    } catch (error) {
+      console.log("El usuario no está registrado y no tiene menú de usuario");
+    }
+    document.querySelector("header").addEventListener("click", (e) => {
+      if (e.target.classList.contains("cerrarSesion")) {
+        e.preventDefault();
+        ls.setUsuario("");
+        window.location = "#/home";
+        header.script();
+      }
+    });
   }
 };
 const footer = {
@@ -5527,14 +5566,14 @@ const enrutador = {
   rutas: {
     home: __vitePreload(() => import("./homeVista-uui6C7j_.js"), true ? __vite__mapDeps([]) : void 0, import.meta.url),
     // Usuarios
-    admin: __vitePreload(() => Promise.resolve().then(() => adminVista), true ? void 0 : void 0, import.meta.url),
+    admin: __vitePreload(() => import("./adminVista-kogBsNPA.js"), true ? __vite__mapDeps([0,1]) : void 0, import.meta.url),
     registro: __vitePreload(() => import("./registroVista-KheGX-E2.js"), true ? __vite__mapDeps([]) : void 0, import.meta.url),
-    login: __vitePreload(() => import("./loginVista-PG6Edmvc.js"), true ? __vite__mapDeps([]) : void 0, import.meta.url),
+    login: __vitePreload(() => import("./loginVista-1ApVu1M5.js"), true ? __vite__mapDeps([]) : void 0, import.meta.url),
     // Proyectos
-    proyectos: __vitePreload(() => import("./proyectosVista-1zKuTv7Y.js"), true ? __vite__mapDeps([]) : void 0, import.meta.url),
-    proyectoNuevo: __vitePreload(() => Promise.resolve().then(() => proyectoNuevoVista), true ? void 0 : void 0, import.meta.url),
-    proyectoEditar: __vitePreload(() => Promise.resolve().then(() => proyectoEditarVista), true ? void 0 : void 0, import.meta.url),
-    proyectoDetalle: __vitePreload(() => Promise.resolve().then(() => proyectoDetalleVista), true ? void 0 : void 0, import.meta.url),
+    proyectos: __vitePreload(() => import("./proyectosVista-Kaav-2vv.js"), true ? __vite__mapDeps([2,1]) : void 0, import.meta.url),
+    proyectoNuevo: __vitePreload(() => import("./proyectoNuevoVista-a0vGPqAG.js"), true ? __vite__mapDeps([]) : void 0, import.meta.url),
+    proyectoEditar: __vitePreload(() => import("./proyectoEditarVista-qnZd6RM7.js"), true ? __vite__mapDeps([3,1]) : void 0, import.meta.url),
+    proyectoDetalle: __vitePreload(() => import("./proyectoDetalleVista-CuK95RUR.js"), true ? __vite__mapDeps([4,1]) : void 0, import.meta.url),
     404: __vitePreload(() => import("./404-0dARs976.js"), true ? __vite__mapDeps([]) : void 0, import.meta.url)
   },
   // Método que obtiene la ruta del navegador
@@ -5578,21 +5617,12 @@ header.script();
 document.querySelector("footer").innerHTML = footer.template;
 enrutador.observadorRutas();
 window.location = "#/home";
-const adminVista = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null
-}, Symbol.toStringTag, { value: "Module" }));
-const proyectoNuevoVista = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null
-}, Symbol.toStringTag, { value: "Module" }));
-const proyectoEditarVista = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null
-}, Symbol.toStringTag, { value: "Module" }));
-const proyectoDetalleVista = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null
-}, Symbol.toStringTag, { value: "Module" }));
+export {
+  ls as l
+};
 function __vite__mapDeps(indexes) {
   if (!__vite__mapDeps.viteFileDeps) {
-    __vite__mapDeps.viteFileDeps = []
+    __vite__mapDeps.viteFileDeps = ["./adminVista-kogBsNPA.js","./datosPruebas-iQ-B72zm.js","./proyectosVista-Kaav-2vv.js","./proyectoEditarVista-qnZd6RM7.js","./proyectoDetalleVista-CuK95RUR.js"]
   }
   return indexes.map((i) => __vite__mapDeps.viteFileDeps[i])
 }

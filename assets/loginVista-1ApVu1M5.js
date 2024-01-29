@@ -9,7 +9,7 @@ const loginVista = {
       <form id="formulario" novalidate action="" class="form border shadow-sm p-3">
         <!-- Email -->
         <label for="email" class="form-label">Email:</label>
-        <input required type="email" class="form-control" />
+        <input id="email" name="email" value="ejemplo@email.com" required type="email" class="form-control" />
         <div class="invalid-feedback">El formato del email no es correcto</div>
         <!-- Contraseña -->
         <label for="pass" class="form-label mt-3">Contraseña:</label>
@@ -51,15 +51,6 @@ const loginVista = {
     `
   ),
   script: () => {
-    console.log("vista login cargada");
-    const formulario = document.querySelector("#formulario");
-    formulario.addEventListener("submit", (event) => {
-      if (!formulario.checkValidity()) {
-        event.preventDefault();
-        event.stopPropagation();
-      }
-      formulario.classList.add("was-validated");
-    });
   }
 };
 export {
