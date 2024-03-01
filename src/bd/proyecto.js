@@ -45,6 +45,8 @@ export class Proyecto {
     return proyectos.map((proyecto) => new Proyecto(proyecto))
   }
 
+
+  
   // Método estático para obtener un perfil por su ID
   static async getById(id) {
     // Realiza una consulta para obtener un perfil por su ID
@@ -113,5 +115,4 @@ export class Proyecto {
     return true
   }
 }
-
 
