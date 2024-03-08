@@ -9,6 +9,7 @@ import { footer } from './componentes/footer'
 
 // Importamos la Función para detectar eventos al cargar las vistas
 import { enrutador } from './componentes/enrutador'
+import { supabase } from './bd/supabase.js'
 
 document.querySelector('header').innerHTML = header.template
 header.script()
@@ -17,3 +18,4 @@ document.querySelector('footer').innerHTML = footer.template
 enrutador.observadorRutas()
 // Cargamos la página home
 window.location = '#/home'
+
