@@ -5566,15 +5566,15 @@ const enrutador = {
   rutas: {
     home: __vitePreload(() => import("./homeVista-uui6C7j_.js"), true ? __vite__mapDeps([]) : void 0, import.meta.url),
     // Usuarios
-    admin: __vitePreload(() => import("./adminVista-DicELNuX.js"), true ? __vite__mapDeps([0,1]) : void 0, import.meta.url),
+    admin: __vitePreload(() => import("./adminVista-7QNCYEpy.js"), true ? __vite__mapDeps([0,1]) : void 0, import.meta.url),
     registro: __vitePreload(() => import("./registroVista-KheGX-E2.js"), true ? __vite__mapDeps([]) : void 0, import.meta.url),
     login: __vitePreload(() => import("./loginVista-1ApVu1M5.js"), true ? __vite__mapDeps([]) : void 0, import.meta.url),
     // Proyectos
-    proyectos: __vitePreload(() => import("./proyectosVista-1pAicMNl.js"), true ? __vite__mapDeps([2,1]) : void 0, import.meta.url),
+    proyectos: __vitePreload(() => import("./proyectosVista-RZAjJP4J.js"), true ? __vite__mapDeps([2,1]) : void 0, import.meta.url),
     proyectoNuevo: __vitePreload(() => import("./proyectoNuevoVista-a0vGPqAG.js"), true ? __vite__mapDeps([]) : void 0, import.meta.url),
     proyectoEditar: __vitePreload(() => import("./proyectoEditarVista-qnZd6RM7.js"), true ? __vite__mapDeps([3,1]) : void 0, import.meta.url),
     proyectoDetalle: __vitePreload(() => import("./proyectoDetalleVista-CuK95RUR.js"), true ? __vite__mapDeps([4,1]) : void 0, import.meta.url),
-    404: __vitePreload(() => import("./404-0s9tEqDJ.js"), true ? __vite__mapDeps([]) : void 0, import.meta.url)
+    404: __vitePreload(() => import("./404-KpW3eIsb.js"), true ? __vite__mapDeps([]) : void 0, import.meta.url)
   },
   // Método que obtiene la ruta del navegador
   router: async () => {
@@ -5622,7 +5622,7 @@ export {
 };
 function __vite__mapDeps(indexes) {
   if (!__vite__mapDeps.viteFileDeps) {
-    __vite__mapDeps.viteFileDeps = ["./adminVista-DicELNuX.js","./datosPruebas-iQ-B72zm.js","./proyectosVista-1pAicMNl.js","./proyectoEditarVista-qnZd6RM7.js","./proyectoDetalleVista-CuK95RUR.js"]
+    __vite__mapDeps.viteFileDeps = ["./adminVista-7QNCYEpy.js","./datosPruebas-iQ-B72zm.js","./proyectosVista-RZAjJP4J.js","./proyectoEditarVista-qnZd6RM7.js","./proyectoDetalleVista-CuK95RUR.js"]
   }
   return indexes.map((i) => __vite__mapDeps.viteFileDeps[i])
 }
