@@ -1,5 +1,6 @@
 import { perfiles } from '../bd/datosPruebas'
 import { ls } from '../componentes/funciones'
+import { User } from '../bd/user'
 
 export default {
     template: // html
