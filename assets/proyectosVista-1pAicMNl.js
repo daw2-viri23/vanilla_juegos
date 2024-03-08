@@ -1,5 +1,5 @@
 import { p as proyectos } from "./datosPruebas-iQ-B72zm.js";
-import { l as ls } from "./main-N1JsFXXK.js";
+import { l as ls } from "./main-yaBLIMJk.js";
 const proyectosVista = {
   template: (
     // html
