@@ -1,3 +1,4 @@
+import "./main-dRxc9pcY.js";
 const loginVista = {
   template: (
     // html
