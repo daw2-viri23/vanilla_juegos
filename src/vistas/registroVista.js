@@ -1,12 +1,18 @@
+import { perfiles } from '../bd/datosPruebas'
+import { ls } from '../componentes/funciones'
+import { header } from '../componentes/header'
+import { User } from '../bd/user'
+import { Perfil } from '../bd/perfil'
+
 export default {
     template: // html
     `
     
 
-    <div class="container">
+    <div class="container" >
     <h1 class="mt-5 text-center">Registro</h1>
     <div class="m-5 mx-auto" style="max-width: 400px">
-        <form action="" class="form border shadow-sm p-3">
+        <form action="" class="form border shadow-sm p-3 " id="formularioRegistro">
 
             <!-- Nombre -->
             <label for="nombre" class="form-label">Nombre:</label>
@@ -34,22 +40,57 @@ export default {
 
 
     `,
+    
+    
     script: () => {
       console.log('vista registro cargada')
       // Validación bootstrap
-
+  
       // Capturamos el formulario en una variable
-      const formulario = document.querySelector('#formRegistro')
+      const formulario = document.querySelector('#formularioRegistro')
       // Detectamos su evento submit (enviar)
-      formulario.addEventListener('submit', (event) => {
+      formulario.addEventListener('submit', async (event) => {
         // Detenemos el evento enviar (submit)
-          event.preventDefault()
-          event.stopPropagation()
-      // Comprobamos si el formulario no valida
+        event.preventDefault()
+        event.stopPropagation()
+        // Comprobamos si el formulario no valida
         if (!formulario.checkValidity()) {
           // Y añadimos la clase 'was-validate' para que se muestren los mensajes
           formulario.classList.add('was-validated')
+        } else {
+          try {
+            // Capturamos datos del formulario para el registro
+            const usuario = {
+              email: formulario.email.value,
+              password: formulario.password.value
+            }
+            console.log(usuario)
+            console.log('Formulario valido. Datos formulario: ', usuario)
+            const user = await User.create(usuario)
+            console.log('user creado', user)
+  
+            // Capturamos datos del formulario para el perfil
+            const perfil = {
+              ...usuario,
+              user_id: user.id,
+              nombre: formulario.nombre.value,
+              
+              apellidos: formulario.apellidos.value
+            }
+            console.log(perfil)
+            // Insertamos perfil en la base de datos
+            Perfil.create(perfil)
+  
+            alert('Usuario creado correctamente. Revisa tu email...')
+            window.location = '#/login'
+          } catch (error) {
+            alert('Error al crear usuario', error)
+            
+          }
         }
+        
       })
+      
     }
+    
   }
