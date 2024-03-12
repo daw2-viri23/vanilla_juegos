@@ -1,4 +1,4 @@
-import { s as supabase } from "./main-Ylf-elqM.js";
+import { s as supabase } from "./main-kkRRI7X9.js";
 class Perfil {
   // Constructor que inicializa las propiedades del perfil
   constructor({

@@ -1,5 +1,5 @@
-import { U as User } from "./main-Ylf-elqM.js";
-import { P as Perfil } from "./perfil-D6oDiBdo.js";
+import { U as User } from "./main-kkRRI7X9.js";
+import { P as Perfil } from "./perfil-uXIoMeZK.js";
 const registroVista = {
   template: (
     // html
@@ -12,19 +12,19 @@ const registroVista = {
         <form action="" class="form border shadow-sm p-3 " id="formularioRegistro">
 
             <!-- Nombre -->
-            <label for="nombre" class="form-label">Nombre:</label>
+            <label for="nombre" id="nombre" class="form-label">Nombre:</label>
             <input required id="nombre" type="text" class="form-control" />
             
             <!-- Apellidos -->
-            <label for="apellidos" class="form-label">Apellidos:</label>
+            <label for="apellidos" id="apellidos" class="form-label">Apellidos:</label>
             <input id="apellidos" type="text" class="form-control" />
             
             <!-- Email -->
-            <label for="email" class="form-label">Email:</label>
+            <label for="email" id="email "class="form-label">Email:</label>
             <input required id="email" type="email" class="form-control" />
             
             <!-- Contraseña -->
-            <label for="pass" class="form-label mt-3">Contraseña:</label>
+            <label for="pass" id="pass" class="form-label mt-3">Contraseña:</label>
             <input required id="pass" type="password" min="6" class="form-control" />
             
             <!-- Botón enviar -->
@@ -39,7 +39,7 @@ const registroVista = {
     `
   ),
   script: () => {
-    console.log("vista registro cargada");
+    console.log("Vista de registro cargada");
     const formulario = document.querySelector("#formularioRegistro");
     formulario.addEventListener("submit", async (event) => {
       event.preventDefault();
@@ -50,24 +50,27 @@ const registroVista = {
         try {
           const usuario = {
             email: formulario.email.value,
-            password: formulario.password.value
+            password: formulario.pass.value
           };
           console.log(usuario);
-          console.log("Formulario valido. Datos formulario: ", usuario);
+          console.log("Formulario válido. Datos del formulario: ", usuario);
           const user = await User.create(usuario);
-          console.log("user creado", user);
+          console.log("Usuario creado", user);
+        } catch (error) {
+          alert("Error al crear usuario: " + error);
+          return;
+        }
+        try {
           const perfil = {
-            ...usuario,
-            user_id: user.id,
             nombre: formulario.nombre.value,
             apellidos: formulario.apellidos.value
           };
           console.log(perfil);
-          Perfil.create(perfil);
-          alert("Usuario creado correctamente. Revisa tu email...");
+          await Perfil.create(perfil);
+          alert("Usuario creado correctamente. Revisa tu correo electrónico...");
           window.location = "#/login";
         } catch (error) {
-          alert("Error al crear usuario", error);
+          alert("Error al crear perfil: " + error);
         }
       }
     });

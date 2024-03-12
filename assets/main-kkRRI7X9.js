@@ -11888,13 +11888,13 @@ const footer = {
 const enrutador = {
   // Objeto (diccionario) con todas las rutas y su vista asociada
   rutas: {
-    home: __vitePreload(() => import("./homeVista-yYmLuCAH.js"), true ? __vite__mapDeps([0,1]) : void 0, import.meta.url),
+    home: __vitePreload(() => import("./homeVista-Q-DUBTJf.js"), true ? __vite__mapDeps([0,1]) : void 0, import.meta.url),
     // Usuarios
-    admin: __vitePreload(() => import("./adminVista-oksSxBNR.js"), true ? __vite__mapDeps([2,3]) : void 0, import.meta.url),
-    registro: __vitePreload(() => import("./registroVista-idKbLbmI.js"), true ? __vite__mapDeps([4,1]) : void 0, import.meta.url),
-    login: __vitePreload(() => import("./loginVista-SN9f9Xkg.js"), true ? __vite__mapDeps([5,1]) : void 0, import.meta.url),
+    admin: __vitePreload(() => import("./adminVista-_h6SnEpz.js"), true ? __vite__mapDeps([2,3]) : void 0, import.meta.url),
+    registro: __vitePreload(() => import("./registroVista-iDGc8ur7.js"), true ? __vite__mapDeps([4,1]) : void 0, import.meta.url),
+    login: __vitePreload(() => import("./loginVista-jIMd084y.js"), true ? __vite__mapDeps([5,1]) : void 0, import.meta.url),
     // Proyectos
-    proyectos: __vitePreload(() => import("./proyectosVista-yvF5gLia.js"), true ? __vite__mapDeps([6,3]) : void 0, import.meta.url),
+    proyectos: __vitePreload(() => import("./proyectosVista-eXHmsS_n.js"), true ? __vite__mapDeps([6,3]) : void 0, import.meta.url),
     proyectoNuevo: __vitePreload(() => import("./proyectoNuevoVista-a0vGPqAG.js"), true ? __vite__mapDeps([]) : void 0, import.meta.url),
     proyectoEditar: __vitePreload(() => import("./proyectoEditarVista-qnZd6RM7.js"), true ? __vite__mapDeps([7,3]) : void 0, import.meta.url),
     proyectoDetalle: __vitePreload(() => import("./proyectoDetalleVista-CuK95RUR.js"), true ? __vite__mapDeps([8,3]) : void 0, import.meta.url),
@@ -11949,7 +11949,7 @@ export {
 };
 function __vite__mapDeps(indexes) {
   if (!__vite__mapDeps.viteFileDeps) {
-    __vite__mapDeps.viteFileDeps = ["./homeVista-yYmLuCAH.js","./perfil-D6oDiBdo.js","./adminVista-oksSxBNR.js","./datosPruebas-iQ-B72zm.js","./registroVista-idKbLbmI.js","./loginVista-SN9f9Xkg.js","./proyectosVista-yvF5gLia.js","./proyectoEditarVista-qnZd6RM7.js","./proyectoDetalleVista-CuK95RUR.js"]
+    __vite__mapDeps.viteFileDeps = ["./homeVista-Q-DUBTJf.js","./perfil-uXIoMeZK.js","./adminVista-_h6SnEpz.js","./datosPruebas-iQ-B72zm.js","./registroVista-iDGc8ur7.js","./loginVista-jIMd084y.js","./proyectosVista-eXHmsS_n.js","./proyectoEditarVista-qnZd6RM7.js","./proyectoDetalleVista-CuK95RUR.js"]
   }
   return indexes.map((i) => __vite__mapDeps.viteFileDeps[i])
 }
