@@ -108,11 +108,22 @@ export default {
   </div>
 </div>
   `,
-  script: () => {
+  script: async () => {
     // **** AQUI DEBEMOS CAPTURAR LOS PROYECTOS DE LA BASE DE DATOS ****
 
     // Capturamos proyectos y guardamos en variable para poder ser filtrada
-    const datos = proyectos
+    const datosBd = await proyectos.getAll()
+    console.log('datos', datosBd)
+    const datos = datosBd.map((dato) => {
+      const fecha = dato.created_at
+      const nuevaFecha = fecha.split('T')[0]
+      const fechaFormateada = `${nuevaFecha.split('-')[2]}/${nuevaFecha.split('-')[1]}/${nuevaFecha.split('-')[0]}`
+      const datoFormateado = {
+        ...dato,
+        created_at: fechaFormateada
+      }
+      return datoFormateado
+    })
 
     // ####################################################################
     // *** FUNCIÓN PARA PINTAR TABLA A PARTIR DE ARRAY datos ***
