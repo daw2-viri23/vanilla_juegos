@@ -1,5 +1,5 @@
-import { P as Perfil } from "./perfil-uXIoMeZK.js";
-import { s as supabase } from "./main-kkRRI7X9.js";
+import { P as Perfil } from "./perfil-FCgdG-jc.js";
+import { s as supabase } from "./main-5PQX7WnW.js";
 class Proyecto {
   // Constructor que inicializa las propiedades del perfil
   constructor({

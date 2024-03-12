@@ -1,5 +1,5 @@
 import { p as proyectos } from "./datosPruebas-iQ-B72zm.js";
-import { l as ls } from "./main-kkRRI7X9.js";
+import { l as ls } from "./main-5PQX7WnW.js";
 const proyectosVista = {
   template: (
     // html
@@ -109,8 +109,19 @@ const proyectosVista = {
 </div>
   `
   ),
-  script: () => {
-    const datos = proyectos;
+  script: async () => {
+    const datosBd = await proyectos.getAll();
+    console.log("datos", datosBd);
+    const datos = datosBd.map((dato) => {
+      const fecha = dato.created_at;
+      const nuevaFecha = fecha.split("T")[0];
+      const fechaFormateada = `${nuevaFecha.split("-")[2]}/${nuevaFecha.split("-")[1]}/${nuevaFecha.split("-")[0]}`;
+      const datoFormateado = {
+        ...dato,
+        created_at: fechaFormateada
+      };
+      return datoFormateado;
+    });
     const pintaTabla = (proyectosFiltrados) => {
       if (misProyectos) {
         proyectosFiltrados = datos.filter((proyecto) => proyecto.user_id === usuario.user_id);

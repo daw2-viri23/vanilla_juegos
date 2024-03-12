@@ -1,5 +1,5 @@
-import { U as User, l as ls, h as header } from "./main-kkRRI7X9.js";
-import { P as Perfil } from "./perfil-uXIoMeZK.js";
+import { U as User, l as ls, h as header } from "./main-5PQX7WnW.js";
+import { P as Perfil } from "./perfil-FCgdG-jc.js";
 const loginVista = {
   // Archivo funcionando
   template: (
