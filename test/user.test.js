@@ -1,4 +1,4 @@
-/*
+
 import { expect } from 'chai'
 
 import { User } from '../src/bd/user.js'
@@ -71,4 +71,3 @@ describe('Pruebas para la Clase User', function () {
     })
   })
 })
-*/

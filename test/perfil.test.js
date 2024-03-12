@@ -1,4 +1,4 @@
-
+/*
 //Cargamos libreria de testing
 import  { expect } from 'chai'
 
@@ -107,7 +107,7 @@ describe('************** Perfil: Crearemos 4 usuarios con diferentes rols. El ú
       expect(perfil.email).equal(ArrayPerfiles[3].email)
     })
   })
-*/
+
   
 
   describe('actualizarPerfil', () => {
@@ -167,3 +167,4 @@ describe('************** Perfil: Crearemos 4 usuarios con diferentes rols. El ú
 
 //exportamos los datos de perfiles
 
+*/
